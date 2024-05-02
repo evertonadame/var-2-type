@@ -1,3 +1,5 @@
+## Features
+
 - **Generate Type Command**: This extension adds a command to VSCode to generate typings from selected variables in the code editor.
 
 ## Looks like
