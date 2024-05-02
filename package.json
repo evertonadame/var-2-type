@@ -1,0 +1,81 @@
+{
+  "name": "var-to-type",
+  "displayName": "var-to-type",
+  "publisher": "EvertonAdame",
+  "description": "Generate types from a variable selection",
+  "version": "0.0.8",
+  "repository": {
+    "type": "git",
+    "directory": "src",
+    "url": "https://github.com/evertonadame/var-to-type"
+  },
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages",
+    "Visualization",
+    "Formatters"
+  ],
+  "icon": "icon.png",
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.generateType",
+        "title": "Var to type 🔄",
+        "category": "TypeScript"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.generateType"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "Var to type",
+      "properties": {
+        "varToType.useTypeAlias": {
+          "type": "boolean",
+          "title": "Use type alias",
+          "default": true,
+          "description": "Use type alias instead of interface"
+        },
+        "varToType.rootname": {
+          "type": "string",
+          "title": "Root name",
+          "description": "Root name for the generated type"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/esprima": "^4.0.6",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.88.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/parser": "^7.7.1",
+    "@vscode/test-cli": "^0.0.8",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "esprima": "4.0.1",
+    "json-to-ts": "2.1.0"
+  }
+}
