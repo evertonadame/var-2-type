@@ -3,11 +3,11 @@
   "displayName": "var-to-type",
   "publisher": "EvertonAdame",
   "description": "Generate types from a variable selection",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "repository": {
     "type": "git",
     "directory": "src",
-    "url": "https://github.com/evertonadame/var-to-type"
+    "url": "https://github.com/evertonadame/var-2-type"
   },
   "engines": {
     "vscode": "^1.88.0"
