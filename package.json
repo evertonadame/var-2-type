@@ -3,7 +3,7 @@
   "displayName": "var-to-type",
   "publisher": "EvertonAdame",
   "description": "Generate types from a variable selection",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "directory": "src",
