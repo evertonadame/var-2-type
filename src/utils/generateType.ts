@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import * as esprima from "esprima";
 import { extractObjectFromCode } from "./extractObject";
 import objectToJson from "json-to-ts";
 
@@ -13,18 +14,23 @@ function getRootName(
 
 function generateType(selectedText: string): string[] | undefined {
   const configuration = vscode.workspace.getConfiguration("varToType");
-
   const useTypeAlias = configuration.get<boolean>("useTypeAlias") ?? true;
   const rootNameConfig = configuration.get<string>("rootname") ?? "";
-
-  if (!selectedText.includes("=")) {
-    return [
-      "Message from varToType: Please select a valid variable. Example: const foo = { bar: 12 }",
-    ];
-  }
-
   let codeToType = {};
   let isArrayExpression = false;
+
+  try {
+    const valueToSend = JSON.parse(selectedText);
+
+    if (valueToSend) {
+      codeToType = valueToSend;
+    }
+
+    return objectToJson(codeToType, {
+      rootName: "Root",
+      useTypeAlias,
+    });
+  } catch (error) {}
 
   try {
     const { object: esprimaObject, varName } =

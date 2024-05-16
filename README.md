@@ -1,8 +1,16 @@
 ## Features
 
-- **Generate Type Command**: This extension adds a command to VSCode to generate typings from selected variables in the code editor.
+- **Generate Type Command**: This extension adds a command to VSCode to generate typings from selected variables in the code editor, also suports JSON objects.
 
 ## Looks like
+
+### JSON selection
+
+![Json selection image](https://i.ibb.co/HPQZtNC/code.png)
+
+### JSON generation
+
+![Json type image](https://i.ibb.co/v4mfsdn/code.png)
 
 ### Variable selection
 
@@ -16,7 +24,7 @@
 
 To use the typing generation feature, follow these steps:
 
-1. Select the variable you want to type in the code editor.
+1. Select the variable or a json object that you want to type in the code editor.
 2. Click on the right mouse button to open the context menu.
 3. Select the Var to type menu.
 4. The typing will be generated and show in a textDocument editor. So if you want to save it, you can do it manually.
@@ -40,6 +48,22 @@ to edit these settings, go to `File > Preferences > Settings` and search for `vs
 ```
 
 ## Example Usage
+
+```typescript
+  {
+    "name": "John",
+    "age": 30
+  }
+
+// After selecting the JSON object and executing the var to type command:
+// The following typing will be generated:
+
+type RootName = {
+  name: string;
+  age: number;
+};
+
+```
 
 ```typescript
 const foo = {
